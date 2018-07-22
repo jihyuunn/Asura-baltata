@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Asura</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li>LOGO</li>
+        <li>추천 점집</li>
+        <li>가까운 점집</li>
+      </ul>
+    </nav>
+    <%= yield %>
+    <footer>Copyright(c) 2018. Asura-balbalta.</footer>
+  </body>
+</html>
