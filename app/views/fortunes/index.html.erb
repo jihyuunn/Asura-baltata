@@ -31,3 +31,11 @@
 <br>
 
 <%= link_to 'New Fortune', new_fortune_path %>
+<br>
+<div>
+<%= form_tag search_path, method: :get do %>
+  <%= select_tag("search[select]", options_for_select([["제목","title"],["내용","description"]],"title")) %>
+  <%= text_field_tag "search[q]" %>
+  <%= submit_tag("SEARCH") %>
+<% end %>
+</div>

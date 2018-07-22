@@ -61,6 +61,17 @@ class FortunesController < ApplicationController
     end
   end
 
+  def search 
+    permittedParams = search_params
+    case permittedParams[:select]
+    when "title"
+      @fortunes = Fortune.where(title: permittedParams[:q]).order(updated_at: :desc)
+    else
+      @fortunes = Fortune.where(description: permittedParams[:q]).order(updated_at: :desc)
+    end
+    render 'index'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_fortune
@@ -70,5 +81,9 @@ class FortunesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def fortune_params
       params.require(:fortune).permit(:title, :description, :rating, :image)
+    end
+
+    def search_params
+      params.require(:search).permit(:q, :select)
     end
 end
